@@ -7,7 +7,7 @@ from malarianet.users.forms import LoginForm, RegistrationForm
 
 users = Blueprint('users',__name__)
 
-@users.route('/register',methods=['GET',['POST']])
+@users.route('/register',methods=['GET','POST']])
 def register():
 
     form = RegistrationForm()
@@ -46,4 +46,4 @@ def login():
                 next = 'core.index'
 
             return redirect(url_for(next))
-    return render_template('login.html',form=form)    
+    return render_template('login.html',form=form)
