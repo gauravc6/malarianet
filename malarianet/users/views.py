@@ -7,14 +7,14 @@ from malarianet.users.forms import LoginForm, RegistrationForm
 
 users = Blueprint('users',__name__)
 
-@users.route('/register',methods=['GET','POST']])
+@users.route('/register',methods=['GET','POST'])
 def register():
 
     form = RegistrationForm()
 
     if form.validate_on_submit():
         user = User(email=form.email.data,
-                    username=form.usernam.data,
+                    username=form.username.data,
                     password=form.username.password)
 
         db.session.add(user)
