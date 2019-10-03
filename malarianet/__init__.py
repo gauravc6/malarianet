@@ -21,6 +21,7 @@ login_manager.init_app(app)
 from malarianet.core.views import core
 from malarianet.users.views import users
 from malarianet.error_pages.handlers import error_pages
+from malarianet.predict.views import predict
 
 app.register_blueprint(core)
 app.register_blueprint(users)
