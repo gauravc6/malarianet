@@ -15,5 +15,9 @@ def upload():
 
 @predict.route('/result',methods=['GET','POST'])
 def result():
-    result = final_predict(upload.image)
+    if upload.image:
+        result = final_predict(upload.image)
+    else:
+        redirect(url_for('predict.upload'))
+
     render_template('result.html',result=result)
