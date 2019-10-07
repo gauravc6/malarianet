@@ -1,0 +1,9 @@
+{%extends "base.html"%}
+{% block content %}
+<div class="jumbotron">
+<h1>Unauthorized!</h1>
+<h3>Login or register to access this page.</h3>
+<h5><a href="{{url_for('users.login')}}">Login</a></h5>
+<h5><a href="{{url_for('users.register')}}">Register</a></h5>
+</div>
+{% endblock %}
