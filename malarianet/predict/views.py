@@ -1,10 +1,12 @@
 from flask import Blueprint, render_template
+from flask_login import login_required
 from malarianet.predict.forms import UploadImage
 from malarianet.predict.model_handler import final_predict, preprocess
 
 predict = Blueprint("predict",__name__)
 
 @predict.route('/upload',methods=['GET','POST'])
+@login_required
 def upload():
     form = UploadImage()
 
