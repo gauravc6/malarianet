@@ -15,7 +15,7 @@ def register():
     if form.validate_on_submit():
         user = User(email=form.email.data,
                     username=form.username.data,
-                    password=form.username.password)
+                    password=form.password.data)
 
         db.session.add(user)
         db.session.commit()
@@ -33,17 +33,19 @@ def logout():
 def login():
 
     form = LoginForm()
+
     if form.validate_on_submit():
 
         user = User.query.filter_by(email=form.email.data).first()
 
         if user.check_password(form.password.data) and user is not None:
             login_user(user)
-            flash('You have been logged in!')
+            flash('Login Success!')
+
 
             next = request.args.get('next')
-            if next==None or next[0]!='/':
-                next = 'core.index'
+            if next == None or not next[0]=='/':
+                next = url_for('core.index')
 
-            return redirect(url_for(next))
+            return redirect(next)
     return render_template('login.html',form=form)
