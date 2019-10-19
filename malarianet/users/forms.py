@@ -18,7 +18,7 @@ class RegistrationForm(FlaskForm):
     username = StringField('Username',validators=[DataRequired()])
     password = PasswordField('Password',validators=[DataRequired(),EqualTo('pass_confirm',message='Passwords don\'t match!')])
     pass_confirm = PasswordField('Confirm Password',validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Register')
 
     def check_email(self,feild):
         if User.query.filter_by(email=field.data).first():
