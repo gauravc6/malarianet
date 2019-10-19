@@ -6,5 +6,5 @@ from wtforms import ValidationError
 
 
 class UploadImage(FlaskForm):
-    picture = FileField("Upload an image to classify",validators=[FileAllowed(['jpg','png']),DataRequired()])
+    picture = FileField("Upload an image...",validators=[FileAllowed(['png','jpg']),DataRequired()])
     submit = SubmitField("Classify")
