@@ -1,3 +1,17 @@
 {%extends "base.html"%}
 {% block content %}
+<div class="container">
+  <div class="jumbotron">
+    <form class="form-group" method="post" enctype="multipart/form-data">
+      {{form.hidden_tag()}}
+  <div class="form-group">
+    <h1>{{ form.picture.label(class="form-group") }}</h1>
+      {{ form.picture(class="form-control-file") }}
+      {{form.submit(clas="btn btn-outline-info")}}
+  </div>
+
+
+</form>
+  </div>
+</div>
 {% endblock %}
