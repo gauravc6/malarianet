@@ -1,3 +1,14 @@
 {%extends "base.html"%}
 {% block content %}
+<div class="container">
+  <div class="jumbotron">
+    <img align="centre" src="" alt="">
+    {% if result[0]==1 %}
+    <font color="#ff0000">Parasitized</font>
+    {% else %}
+    <font color="#00ff00">Uninfected</font>
+    {% endif %}
+  </div>
+
+</div>
 {% endblock %}
