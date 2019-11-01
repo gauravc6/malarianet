@@ -1,8 +1,7 @@
 import cv2
-from keras import backend as k
 from flask import Blueprint, render_template, redirect,url_for
 from flask_login import login_required
-from keras.models import load_model
+from malarianet import model
 from malarianet.predict.forms import UploadImage
 from malarianet.predict.image_handler import preprocess
 
@@ -14,7 +13,6 @@ def upload():
     form = UploadImage()
 
     if form.validate_on_submit():
-        global image, img_data
         img_data = form.picture.data
         image = preprocess(img_data)
         return redirect(url_for('predict.result'))
@@ -22,8 +20,6 @@ def upload():
 
 @predict.route('/result',methods=['GET','POST'])
 def result():
-    k.clear_session()
-    model = load_model('model.h5')
     if image.shape!=():
         result = model.predict_classes(image)
     else:

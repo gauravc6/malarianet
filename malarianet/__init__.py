@@ -3,6 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from keras.models import load_model
 
 app = Flask(__name__)
 
@@ -18,6 +19,9 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 login_manager.login_view = "users.login"
+
+model = load_model('model.h5')
+model._make_predict_function()
 
 from malarianet.core.views import core
 from malarianet.users.views import users

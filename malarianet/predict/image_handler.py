@@ -2,7 +2,6 @@ import os
 import cv2
 import numpy as np
 from PIL import Image
-from flask import current_app
 
 def preprocess(image):
     img = Image.open(image)
