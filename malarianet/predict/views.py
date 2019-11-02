@@ -13,12 +13,14 @@ def upload():
     form = UploadImage()
 
     if form.validate_on_submit():
+        global image
         img_data = form.picture.data
         image = preprocess(img_data)
         return redirect(url_for('predict.result'))
     return render_template('upload.html',form=form)
 
 @predict.route('/result',methods=['GET','POST'])
+@login_required
 def result():
     if image.shape!=():
         result = model.predict_classes(image)

@@ -1,3 +1,14 @@
 {%extends "base.html"%}
 {% block content %}
+  <div class="jumbotron">
+    <h1>Welcome to MalariaNet!</h1>
+    <h5><font color="grey">A website dedicated to faster malaria detection.</font></h5>
+</div>
+{% if current_user.is_authenticated %}
+<h5><font color="008000">You are currently logged in as: {{current_user}}</font></h5>
+<h5>Go to upload: <a href="{{url_for('predict.upload')}}">Upload</a></h5>
+{% else %}
+<h5><font color="red">You are currently not logged in!</font></h5>
+<h5>Login here: <a href="{{url_for('users.login')}}">Login</a></h5>
+{%endif%}
 {% endblock %}

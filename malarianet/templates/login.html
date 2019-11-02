@@ -13,9 +13,12 @@
       {{form.password(class="form-control form-contol-lg")}}<br>
     </div>
     <div class="form-group">
-      {{form.submit(class="btn btn-outline-info")}}
+      {{form.submit(class="btn btn-primary")}}
+      or
+      <a href="{{url_for('users.register')}}">Register</a>
     </div>
 
   </form>
+      </div>
       </div>
 {% endblock %}
