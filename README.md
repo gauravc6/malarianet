@@ -19,4 +19,5 @@
 * To start the webserver, just simply do `python app.py`.
 ### Other info
 * `MalariaCNN.ipynb` contains code used to generate the model.
+* Swift app running the same model [here](https://github.com/kartik-kumar71/MalariaNetSwift).
 * Dataset - https://www.kaggle.com/iarunava/cell-images-for-detecting-malaria
