@@ -30,7 +30,7 @@ requests-oauthlib
 six
 SQLAlchemy
 SQLAlchemy-Utils
-tensorflow==1.15.2
+tensorflow==2.7.2
 urllib3
 URLObject
 Werkzeug
